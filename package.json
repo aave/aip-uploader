@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "upload": "./cli.js && curl https://gateway.pinata.cloud/ipfs/`cat ./ipfsHash` > ipfsAipDoc.json && curl -sF file='@./ipfsAipDoc.json' https://api.thegraph.com/ipfs/api/v0/add > /dev/null"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bs58": "^4.0.1",
     "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }
