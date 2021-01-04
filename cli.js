@@ -32,7 +32,7 @@ fetch(pinataEndpoint, {
   .then(res => {
     return res.json()
   }).then(result => {
-    if (result.error) throw new Error(result.error)
+    if (result.error) throw { message: result.error }
     const hash = result.IpfsHash
     const encodedHash = `0x${
       bs58
